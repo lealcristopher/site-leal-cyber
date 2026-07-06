@@ -1,303 +1,555 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-    <title>Blindagem Digital Pessoal -</title>
-    <link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leal Cyber — Soluções Digitais Completas</title>
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ── Tokens ── */
+:root {
+  --navy:       #0D1829;
+  --navy-mid:   #13223A;
+  --navy-line:  #1E3050;
+  --navy-ink:   #E4EAF4;
+  --navy-muted: #7B90B8;
+  --navy-dim:   #4A5E80;
+  --light:      #FBFAF6;
+  --light-2:    #F3F1EA;
+  --light-line: #E0DDD4;
+  --light-ink:  #1B1D24;
+  --light-muted:#454852;
+  --light-dim:  #7A7D87;
+  --coral:      #FF5A3C;
+  --coral-deep: #E8472B;
+  --coral-soft: #FFE9E3;
+  --orange:     #F56A00;
+  --jade:       #0F8A63;
+  --jade-deep:  #0A6B4D;
+  --jade-soft:  #E2F2EA;
+  --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-xl: 30px;
+  --maxw: 1080px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--light);
+  color: var(--light-ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -.02em; }
+.mono { font-family: 'Space Mono', monospace; }
+
+/* ══ TOPBAR ══ */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(13,24,41,.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 2px solid var(--coral);
+}
+.topbar .wrap {
+  display: flex; align-items: center; gap: 16px; height: 64px;
+}
+.topbar .logo { text-decoration: none; line-height: 1; display: flex; align-items: baseline; gap: 0; }
+.topbar .logo-w { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:26px; letter-spacing:-0.5px; color:#E4EAF4; }
+.topbar .logo-o { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:26px; letter-spacing:-0.5px; color:#F56A00; }
+.topbar nav { margin-left: auto; display: flex; gap: 4px; align-items:center; flex-wrap: wrap; }
+.topbar nav a {
+  font-family: 'Space Mono', monospace; font-size: .7rem; font-weight: 700;
+  color: var(--navy-muted); text-decoration: none;
+  padding: 7px 10px; border-radius: var(--r-sm);
+  letter-spacing: .04em; text-transform: uppercase;
+  transition: background .15s, color .15s;
+}
+.topbar nav a:hover { background: var(--navy-mid); color: var(--navy-ink); }
+.topbar .cta-nav {
+  background: var(--coral); color: #fff;
+  padding: 8px 18px; border-radius: 99px;
+  font-family: 'Inter', sans-serif; font-size: .82rem; font-weight: 600;
+  text-decoration: none; white-space: nowrap;
+  transition: background .15s;
+}
+.topbar .cta-nav:hover { background: var(--coral-deep); }
+@media(max-width:860px) {
+  .topbar nav a:not(.cta-nav) { display: none; }
+}
+
+/* ══ HERO ══ */
+.hero {
+  background: var(--navy);
+  padding: 100px 0 80px;
+  position: relative; overflow: hidden;
+  border-bottom: 3px solid var(--coral);
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  /* Grid de pontos sutis */
+  background-image: radial-gradient(circle, rgba(255,255,255,0.09) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+}
+.hero::after {
+  content: "";
+  position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+  width: 500px; height: 500px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3C!-- conexões --%3E%3Cpath d='M60 180 L160 120 L280 150 L360 80 L440 140' fill='none' stroke='rgba(255,90,60,0.12)' stroke-width='1.5'/%3E%3Cpath d='M80 320 L180 280 L300 340 L420 260' fill='none' stroke='rgba(255,90,60,0.1)' stroke-width='1.5'/%3E%3Cpath d='M40 420 L140 360 L260 420 L380 370 L460 430' fill='none' stroke='rgba(255,90,60,0.08)' stroke-width='1.5'/%3E%3Cpath d='M100 80 L220 50 L340 100 L440 60' fill='none' stroke='rgba(255,90,60,0.08)' stroke-width='1'/%3E%3Cpath d='M160 120 L180 280' fill='none' stroke='rgba(255,90,60,0.07)' stroke-width='1' stroke-dasharray='4 4'/%3E%3Cpath d='M280 150 L300 340' fill='none' stroke='rgba(255,90,60,0.07)' stroke-width='1' stroke-dasharray='4 4'/%3E%3Cpath d='M360 80 L420 260' fill='none' stroke='rgba(255,90,60,0.06)' stroke-width='1' stroke-dasharray='4 4'/%3E%3Cpath d='M140 360 L180 280' fill='none' stroke='rgba(255,90,60,0.06)' stroke-width='1' stroke-dasharray='4 4'/%3E%3C!-- nós (círculos) --%3E%3Ccircle cx='60' cy='180' r='6' fill='rgba(255,90,60,0.15)' stroke='rgba(255,90,60,0.25)' stroke-width='1.5'/%3E%3Ccircle cx='160' cy='120' r='8' fill='rgba(255,90,60,0.12)' stroke='rgba(255,90,60,0.22)' stroke-width='1.5'/%3E%3Ccircle cx='280' cy='150' r='7' fill='rgba(255,90,60,0.14)' stroke='rgba(255,90,60,0.24)' stroke-width='1.5'/%3E%3Ccircle cx='360' cy='80' r='6' fill='rgba(255,90,60,0.1)' stroke='rgba(255,90,60,0.2)' stroke-width='1.5'/%3E%3Ccircle cx='440' cy='140' r='5' fill='rgba(255,90,60,0.12)' stroke='rgba(255,90,60,0.22)' stroke-width='1.5'/%3E%3Ccircle cx='80' cy='320' r='5' fill='rgba(255,90,60,0.1)' stroke='rgba(255,90,60,0.2)' stroke-width='1.5'/%3E%3Ccircle cx='180' cy='280' r='7' fill='rgba(255,90,60,0.13)' stroke='rgba(255,90,60,0.23)' stroke-width='1.5'/%3E%3Ccircle cx='300' cy='340' r='6' fill='rgba(255,90,60,0.11)' stroke='rgba(255,90,60,0.21)' stroke-width='1.5'/%3E%3Ccircle cx='420' cy='260' r='5' fill='rgba(255,90,60,0.12)' stroke='rgba(255,90,60,0.22)' stroke-width='1.5'/%3E%3Ccircle cx='40' cy='420' r='4' fill='rgba(255,90,60,0.1)' stroke='rgba(255,90,60,0.2)' stroke-width='1.5'/%3E%3Ccircle cx='140' cy='360' r='5' fill='rgba(255,90,60,0.12)' stroke='rgba(255,90,60,0.22)' stroke-width='1.5'/%3E%3Ccircle cx='260' cy='420' r='6' fill='rgba(255,90,60,0.1)' stroke='rgba(255,90,60,0.2)' stroke-width='1.5'/%3E%3Ccircle cx='380' cy='370' r='4' fill='rgba(255,90,60,0.12)' stroke='rgba(255,90,60,0.22)' stroke-width='1.5'/%3E%3Ccircle cx='460' cy='430' r='5' fill='rgba(255,90,60,0.1)' stroke='rgba(255,90,60,0.2)' stroke-width='1.5'/%3E%3Ccircle cx='100' cy='80' r='4' fill='rgba(255,90,60,0.08)' stroke='rgba(255,90,60,0.18)' stroke-width='1.5'/%3E%3Ccircle cx='220' cy='50' r='5' fill='rgba(255,90,60,0.1)' stroke='rgba(255,90,60,0.2)' stroke-width='1.5'/%3E%3Ccircle cx='340' cy='100' r='4' fill='rgba(255,90,60,0.08)' stroke='rgba(255,90,60,0.18)' stroke-width='1.5'/%3E%3Ccircle cx='440' cy='60' r='3' fill='rgba(255,90,60,0.1)' stroke='rgba(255,90,60,0.2)' stroke-width='1.5'/%3E%3C!-- pulsar em alguns nós --%3E%3Ccircle cx='160' cy='120' r='14' fill='none' stroke='rgba(255,90,60,0.06)' stroke-width='1'/%3E%3Ccircle cx='280' cy='150' r='12' fill='none' stroke='rgba(255,90,60,0.05)' stroke-width='1'/%3E%3Ccircle cx='180' cy='280' r='13' fill='none' stroke='rgba(255,90,60,0.05)' stroke-width='1'/%3E%3C/svg%3E") center/contain no-repeat;
+  pointer-events: none;
+  opacity: .9;
+}
+.hero .wrap { position: relative; z-index: 1; }
+.hero .eyebrow {
+  font-family: 'Space Mono', monospace; font-size: .72rem; font-weight: 700;
+  color: var(--coral); letter-spacing: .12em; text-transform: uppercase;
+  margin-bottom: 22px; display: flex; align-items: center; gap: 10px;
+}
+.hero .eyebrow::before {
+  content: ""; width: 28px; height: 2px; background: var(--coral); display: block;
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  color: var(--navy-ink); line-height: 1.08; margin-bottom: 18px;
+  max-width: 16ch;
+}
+.hero h1 em { font-style: normal; color: var(--coral); }
+.hero .subtitle {
+  color: var(--navy-muted); font-size: 1.05rem; max-width: 52ch;
+  line-height: 1.65; margin-bottom: 36px;
+}
+.hero .cta-group { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-badges {
+  display: flex; gap: 24px; margin-top: 48px; padding-top: 32px;
+  border-top: 1px solid var(--navy-line); flex-wrap: wrap;
+}
+.hero-badge {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .82rem; color: var(--navy-muted);
+}
+.hero-badge .dot { width: 8px; height: 8px; border-radius: 99px; background: var(--coral); flex: none; }
+.hero-badge strong { color: var(--navy-ink); font-weight: 600; }
+
+/* ══ BOTÕES ══ */
+.btn {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: .92rem;
+  border: none; cursor: pointer; border-radius: 99px;
+  padding: 14px 26px; display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; transition: transform .12s, background .12s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--coral); color: #fff; }
+.btn-primary:hover { background: var(--coral-deep); }
+.btn-ghost {
+  background: transparent; color: var(--navy-ink);
+  border: 1.5px solid var(--navy-line); color: var(--navy-muted);
+}
+.btn-ghost:hover { border-color: var(--navy-muted); color: var(--navy-ink); }
+.btn-jade { background: var(--jade-deep); color: #fff; }
+.btn-jade:hover { background: var(--jade); }
+
+/* ══ SEÇÕES ══ */
+section { padding: 72px 0; }
+section.alt { background: var(--light-2); border-block: 1px solid var(--light-line); }
+section.navy-bg { background: var(--navy); color: var(--navy-ink); border-block: 1px solid var(--navy-line); }
+.sec-label {
+  font-family: 'Space Mono', monospace; font-size: .68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em; color: var(--coral);
+  margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
+}
+.sec-label::before { content: ""; width: 20px; height: 2px; background: var(--coral); }
+h2.sec-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700;
+  margin-bottom: 10px; line-height: 1.12;
+}
+.sec-sub {
+  color: var(--light-muted); max-width: 56ch; font-size: .98rem;
+  margin-bottom: 44px; line-height: 1.6;
+}
+section.navy-bg .sec-sub { color: var(--navy-muted); }
+section.navy-bg .sec-label::before { background: var(--coral); }
+
+/* ══ PILARES / CARDS ══ */
+.pillars-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+.pillar-card {
+  background: #fff;
+  border: 1px solid var(--light-line);
+  border-radius: var(--r-xl);
+  padding: 32px 26px;
+  border-top: 3px solid var(--coral);
+  transition: transform .2s, box-shadow .2s;
+}
+.pillar-card:hover { transform: translateY(-3px); box-shadow: 0 16px 48px -24px rgba(13,24,41,.14); }
+.pillar-card .p-icon {
+  width: 44px; height: 44px; border-radius: var(--r-md);
+  background: var(--coral-soft); display: grid; place-items: center;
+  margin-bottom: 14px;
+}
+.pillar-card .p-icon svg { width: 22px; height: 22px; stroke: var(--coral); fill: none; stroke-width: 1.8; }
+.pillar-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.pillar-card .p-sub {
+  font-size: .82rem; color: var(--coral); font-weight: 600;
+  margin-bottom: 12px; font-family: 'Space Mono', monospace;
+}
+.pillar-card p { font-size: .88rem; color: var(--light-muted); line-height: 1.6; }
+.pillar-card .p-servicos {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--light-line);
+}
+.pillar-card .p-servicos strong { font-size: .78rem; color: var(--light-ink); }
+.pillar-card .p-servicos ul { list-style: none; margin-top: 6px; }
+.pillar-card .p-servicos ul li {
+  font-size: .8rem; color: var(--light-muted);
+  padding: 3px 0 3px 14px; position: relative;
+}
+.pillar-card .p-servicos ul li::before {
+  content: ""; position: absolute; left: 0; top: 10px;
+  width: 5px; height: 5px; border-radius: 99px; background: var(--coral);
+}
+
+/* ══ DIFERENCIAIS ══ */
+.diff-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.diff-item {
+  text-align: center; padding: 28px 20px;
+  background: var(--navy-mid); border: 1px solid var(--navy-line);
+  border-radius: var(--r-xl);
+}
+.diff-item .num {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.6rem; font-weight: 700; color: var(--coral);
+  margin-bottom: 4px;
+}
+.diff-item h4 { font-size: .92rem; color: var(--navy-ink); margin-bottom: 6px; }
+.diff-item p { font-size: .82rem; color: var(--navy-muted); line-height: 1.55; }
+
+/* ══ PORTFOLIO CASES ══ */
+.cases-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.case-card {
+  background: #fff; border: 1px solid var(--light-line);
+  border-radius: var(--r-xl); padding: 26px 22px;
+  border-left: 3px solid var(--coral);
+}
+.case-card .case-tag {
+  font-family: 'Space Mono', monospace; font-size: .6rem; font-weight: 700;
+  color: var(--coral); letter-spacing: .06em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.case-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.case-card p { font-size: .84rem; color: var(--light-muted); line-height: 1.55; }
+.case-card .case-link {
+  display: inline-block; margin-top: 10px;
+  font-size: .78rem; font-weight: 600; color: var(--coral); text-decoration: none;
+}
+.case-card .case-link:hover { text-decoration: underline; }
+
+/* ══ B2C ── */
+.b2c-card {
+  background: var(--navy);
+  border-radius: var(--r-xl); padding: 40px 32px;
+  border: 1px solid var(--navy-line);
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;
+}
+.b2c-card h3 { font-size: 1.3rem; color: var(--navy-ink); margin-bottom: 12px; }
+.b2c-card p { color: var(--navy-muted); font-size: .9rem; line-height: 1.6; margin-bottom: 20px; }
+.b2c-card .b2c-badge {
+  display: inline-block; font-family: 'Space Mono', monospace;
+  font-size: .62rem; font-weight: 700; letter-spacing: .06em;
+  padding: 4px 12px; border-radius: 99px;
+  background: rgba(255,90,60,.15); color: var(--coral); margin-bottom: 10px;
+}
+.b2c-right {
+  background: var(--navy-mid); border: 1px solid var(--navy-line);
+  border-radius: var(--r-lg); padding: 24px;
+}
+.b2c-plan { display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--navy-line); }
+.b2c-plan:last-child { border-bottom: none; }
+.b2c-plan .plan-name { font-size: .9rem; color: var(--navy-ink); font-weight: 600; }
+.b2c-plan .plan-price { font-family: 'Space Mono', monospace; font-size: .82rem; color: var(--coral); font-weight: 700; }
+
+/* ══ CTA ══ */
+.cta-section {
+  background: var(--navy); text-align: center;
+  padding: 80px 28px; border-top: 3px solid var(--coral);
+}
+.cta-section h2 { color: var(--navy-ink); font-size: clamp(1.6rem, 3.5vw, 2.6rem); margin-bottom: 14px; }
+.cta-section p { color: var(--navy-muted); max-width: 48ch; margin: 0 auto 32px; font-size: .98rem; }
+
+/* ══ FOOTER ══ */
+footer {
+  background: var(--navy-mid); color: var(--navy-muted);
+  border-top: 2px solid var(--coral);
+  padding: 40px 0 52px;
+}
+footer .wrap { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
+footer .f-note { font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--navy-dim); line-height: 1.7; }
+footer .f-links { display: flex; gap: 20px; flex-wrap: wrap; }
+footer .f-links a {
+  font-family: 'Space Mono', monospace; font-size: .68rem;
+  color: var(--navy-dim); text-decoration: none; letter-spacing: .04em;
+}
+footer .f-links a:hover { color: var(--navy-muted); }
+footer .logo-footer { text-decoration: none; display:flex; align-items:baseline; gap:0; margin-bottom:6px; }
+
+/* ══ RESPONSIVO ══ */
+@media(max-width:860px) {
+  .pillars-grid, .cases-grid { grid-template-columns: 1fr; }
+  .diff-grid { grid-template-columns: 1fr 1fr; }
+  .b2c-card { grid-template-columns: 1fr; }
+  .topbar nav a:not(.cta-nav) { display: none; }
+}
+@media(max-width:560px) {
+  .hero { padding: 60px 0 56px; }
+  .hero::after { display: none; }
+  section { padding: 48px 0; }
+  .diff-grid { grid-template-columns: 1fr; }
+}
+@media print {
+  .topbar { position: static; }
+  body { background: #fff; color: #000; }
+}
+</style>
 </head>
 <body>
 
-	<nav class="navbar">
-		<div class="container navbar-content">
-			<div class="logo">
-				<img src="img/leal-cyber-logo.jpg">
-			</div>
-			<ul class="nav-links">
-				<li><a href="#tiers">Planos</a></li>
-				<li><a href="#contato" class="btn-nav">Contato</a></li>
-			</ul>
-		</div>
-	</nav>
+<!-- ══ TOPBAR ══ -->
+<header class="topbar">
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="LealCyber — início">
+      <span class="logo-w">Leal</span><span class="logo-o">Cyber</span>
+    </a>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#blindagem">Blindagem</a>
+      <a href="curriculo.html">Currículo</a>
+      <a href="https://wa.me/5561974035528?text=Ol%C3%A1%2C%20vi%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%20uma%20conversa%21" target="_blank" class="cta-nav">Falar com especialista</a>
+    </nav>
+  </div>
+</header>
 
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Consultoria Digital Estratégica</div>
+    <h1>Da arquitetura à automação — <em>soluções digitais completas</em>.</h1>
+    <p class="subtitle">Não somos mais uma agência. Somos parceiros técnicos que entregam arquitetura cloud, segurança, automação e SaaS — do desenho ao deploy.</p>
+    <div class="cta-group">
+      <a href="#servicos" class="btn btn-primary">Ver serviços</a>
+      <a href="https://wa.me/5561974035528?text=Ol%C3%A1%2C%20vi%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%20uma%20conversa%21" target="_blank" class="btn btn-ghost">Falar com especialista</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge"><span class="dot"></span><span><strong>Engenharia IME</strong> — formação de elite</span></div>
+      <div class="hero-badge"><span class="dot"></span><span><strong>10+ anos</strong> de experiência</span></div>
+      <div class="hero-badge"><span class="dot"></span><span>Especialista em <strong>Guerra Cibernética</strong></span></div>
+      <div class="hero-badge"><span class="dot"></span><span>Ex-<strong>CCTIR/Exército</strong> e <strong>Gupy</strong></span></div>
+    </div>
+  </div>
+</section>
 
-    <header class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Blindagem Digital Pessoal</h1>
-                <p>Proteja sua identidade, seus dados e sua privacidade no mundo digital com estratégias de elite.</p>
-                <a href="#tiers" class="btn-main">Quero me proteger</a>
-            </div>
-            <div class="hero-image">
-                <img src="img/blindagem-digital-pessoal.png" alt="Segurança Digital">
-            </div>
+<!-- ══ DIFERENCIAIS ══ -->
+<section class="navy-bg">
+  <div class="wrap">
+    <div class="sec-label">Por que a Leal Cyber</div>
+    <h2 class="sec-title">Quem entrega é quem desenha</h2>
+    <p class="sec-sub">Sem revenda. Sem terceirização. Você fala direto com o arquiteto que constrói.</p>
+    <div class="diff-grid">
+      <div class="diff-item">
+        <div class="num">10+</div>
+        <h4>Anos de experiência</h4>
+        <p>Segurança, cloud e desenvolvimento nos setores público e privado.</p>
+      </div>
+      <div class="diff-item">
+        <div class="num">IME</div>
+        <h4>Formação de elite</h4>
+        <p>Engenharia de Computação pelo Instituto Militar de Engenharia.</p>
+      </div>
+      <div class="diff-item">
+        <div class="num">SDD</div>
+        <h4>Spec Driven Development</h4>
+        <p>Metodologia própria que garante rastreabilidade entre especificação e código.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVIÇOS (PILARES) ══ -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-label">Nossos serviços</div>
+    <h2 class="sec-title">4 pilares com sinergia</h2>
+    <p class="sec-sub">Cada serviço alimenta o próximo. Um cliente que contrata cloud naturalmente precisa de segurança, automação e produto.</p>
+
+    <div class="pillars-grid">
+
+      <!-- Pilar 1 -->
+      <div class="pillar-card">
+        <div class="p-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"/></svg>
         </div>
-    </header>
-
-
-	<section class="features">
-		<div class="container">
-			<h2>A sua segurança não pode ser opcional</h2>
-			<div class="features-grid">
-				
-				<div class="feature-item">
-					<div class="icon-wrapper">
-						<i class="fas fa-user-secret"></i> </div>
-					<h3>Anti-Golpes e Fraudes</h3>
-					<p>Bloqueie as brechas usadas para clonagem de WhatsApp, golpes do PIX e engenharia social. Protegemos seu patrimônio contra criminosos digitais.</p>
-				</div>
-
-				<div class="feature-item">
-					<div class="icon-wrapper">
-						<i class="fas fa-sitemap"></i> </div>
-					<h3>Sua Vida Organizada</h3>
-					<p>Chega de esquecer senhas ou perder acessos. Criamos um inventário completo e seguro dos seus ativos digitais, simplificando sua gestão diária.</p>
-				</div>
-
-				<div class="feature-item">
-					<div class="icon-wrapper">
-						<i class="fas fa-eye-slash"></i> </div>
-					<h3>Privacidade de Dados</h3>
-					<p>Evite a exposição da sua vida privada para estranhos e empresas. Configuramos suas camadas de privacidade para reduzir rastros digitais e impedir que seus dados pessoais sejam usados contra você.</p>
-				</div>
-
-			</div>
-		</div>
-	</section>
-
-
-	<section class="methodology">
-		<div class="container">
-			<span class="subtitle">Metodologia Exclusiva</span>
-			<h2>O que é a Blindagem Digital Pessoal?</h2>
-			<p class="method-intro">Não é apenas um software, é uma consultoria estratégica que integra as melhores ferramentas de defesa do mundo para proteger sua vida física e digital.</p>
-
-			<div class="method-grid">
-				<div class="method-card">
-					<div class="method-number">01</div>
-					<h3>Mapeamento e Inventário</h3>
-					<p>Através de um formulário técnico, mapeamos todos os seus ativos críticos: redes sociais, e-mails, apps bancários e dispositivos.</p>
-				</div>
-
-				<div class="method-card">
-					<div class="method-number">02</div>
-					<h3>Arquitetura de Defesa</h3>
-					<p>Selecionamos e pré-configuramos seu ecossistema: Cofre de Senhas, 2FA físico/digital, e-mails de recuperação dedicados e Antimalware.</p>
-				</div>
-
-				<div class="method-card">
-					<div class="method-number">03</div>
-					<h3>Entrega da Blindagem</h3>
-					<p>Você recebe sua Documentação de Defesa com QRCodes e o passo a passo para "vestir" a blindagem de forma simples e rápida.</p>
-				</div>
-
-				<div class="method-card">
-					<div class="method-number">04</div>
-					<h3>Plano de Ação e Suporte</h3>
-					<p>Dependendo do seu nível de suporte, implementamos as configurações via acesso remoto ou chamadas de vídeo em casos delicados.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	<section class="about-specialist">
-		<div class="container about-grid">
-			<div class="about-image">
-				<img src="img/perfil-cyber.jpg" alt="Fundador Leal Cyber">
-				<div class="badge-experience">10+ anos de experiência</div>
-			</div>
-			<div class="about-text">
-				<span class="subtitle">Especialista Responsável</span>
-				<h2>Quem vai blindar sua vida digital?</h2>
-				<p>A segurança de elite não é fruto do acaso, mas de uma formação nos ambientes mais rigorosos do país.</p>
-				
-				<div class="credentials">
-					<div class="credential-item">
-						<i class="fas fa-graduation-cap"></i>
-						<div>
-							<strong>Engenheiro de Computação pelo IME</strong>
-							<p>Formação de elite pelo Instituto Militar de Engenharia.</p>
-						</div>
-					</div>
-					<div class="credential-item">
-						<!--<i  class="fas fa-user-ninja"></i>-->
-						<i  class="fas fa-laptop"></i>
-						
-						<div>
-							<strong>Especialista em Guerra Cibernética</strong>
-							<p>Atuação técnica em Defesa Cibernética pelo Exército Brasileiro.</p>
-						</div>
-					</div>
-					<div class="credential-item">
-						<i class="fas fa-user-check"></i>
-						<div>
-							<strong>Uma década de atuação</strong>
-							<p>10 anos protegendo ativos críticos e informações sensíveis nos setores público e privado.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-    <section id="tiers" class="pricing">
-        <div class="container">
-            <h2>Escolha seu nível de suporte</h2>
-            <div class="tiers">
-                <div class="card">
-					<h3>Essencial</h3> 
-					<h4>Inclui a estrutura de blindagem e documentação para implementação assistida</h4>
-					</br>
-                    <ul>
-                        <li><i class="fas fa-check"></i>Cofre de Senhas</li>
-                        <li><i class="fas fa-check"></i>Configuração de 2FA</li>
-						<li><i class="fas fa-check"></i>E-mail  de recuperação</li>
-						<li><i class="fas fa-check"></i>Antimalware</li>
-						<li><i class="fas fa-check"></i>Configuração de Android</li>
-						<li><i class="fas fa-check"></i>Configuração de Whastapp</li>
-						<li><i class="fas fa-check"></i>Configuração de Google</li>
-						<li><i class="fas fa-check"></i>Instruções para demais contas</li>
-						<li><i class="fas fa-check"></i>Inventário de ativos digitais</li>
-						<li><i class="fas fa-check"></i>Documentação da Blindagem</li>
-						<li class="not-included"><i class="fas fa-xmark"></i> Suporte por vídeo chamada</li>
-                        <li class="not-included"><i class="fas fa-xmark"></i> Treinamento exclusivo</li>
-                    </ul>
-                    <a href="https://wa.me/+5561974035528?text=Olá! Gostaria de agendar uma conversa sobre Blindagem Digital Pessoal" class="btn-tier">Saber mais</a>
-                </div>
-                <div class="card featured">
-                    <h3>Avançado</h3> 
-					<h4>Inclui suporte direto para quem não tem tempo a perder com burocracia digital.</h4>
-					</br>
-                    <ul>
-                        <li><i class="fas fa-check"></i>Cofre de Senhas</li>
-                        <li><i class="fas fa-check"></i>Configuração de 2FA</li>
-						<li><i class="fas fa-check"></i>E-mail  de recuperação</li>
-						<li><i class="fas fa-check"></i>Antimalware</li>
-						<li><i class="fas fa-check"></i>Configuração de Android</li>
-						<li><i class="fas fa-check"></i>Configuração de Whastapp</li>
-						<li><i class="fas fa-check"></i>Configuração de Google</li>
-						<li><i class="fas fa-check"></i>Instruções para demais contas</li>
-						<li><i class="fas fa-check"></i>Inventário de ativos digitais</li>
-						<li><i class="fas fa-check"></i>Documentação da Blindagem</li>
-						<li><i class="fas fa-check"></i> Suporte por vídeo</li>
-                        <li class="not-included"><i class="fas fa-xmark"></i> Treinamento exclusivo</li>
-                    </ul>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-1GJ5_nAAnq5v6qoZVFTDs33iYcNk8wz1KZ7yEfT2kfhR1w/viewform?usp=header" class="btn-tier">Saber mais</a>
-                </div>
-                <div class="card">
-                    <h3>Premium</h3>
-					<h4>Inclui treinamento completo para você nunca mais cair em engenharia social.</h4>
-					</br>
-                    <ul>
-                      <li><i class="fas fa-check"></i>Cofre de Senhas</li>
-                        <li><i class="fas fa-check"></i>Configuração de 2FA</li>
-						<li><i class="fas fa-check"></i>E-mail  de recuperação</li>
-						<li><i class="fas fa-check"></i>Antimalware</li>
-						<li><i class="fas fa-check"></i>Configuração de Android</li>
-						<li><i class="fas fa-check"></i>Configuração de Whastapp</li>
-						<li><i class="fas fa-check"></i>Configuração de Google</li>
-						<li><i class="fas fa-check"></i>Instruções para demais contas</li>
-						<li><i class="fas fa-check"></i>Inventário de ativos digitais</li>
-						<li><i class="fas fa-check"></i>Documentação da Blindagem</li>
-						<li><i class="fas fa-check"></i> Suporte por vídeo</li>
-                        <li><i class="fas fa-check"></i> Treinamento exclusivo</li>
-                    </ul>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-1GJ5_nAAnq5v6qoZVFTDs33iYcNk8wz1KZ7yEfT2kfhR1w/viewform?usp=header" class="btn-tier">Saber mais</a>
-                </div>
-            </div>
+        <h3>☁️ Arquitetura Cloud & DevOps</h3>
+        <div class="p-sub">Pilar 1</div>
+        <p>Auditoria, migração e infraestrutura como código em AWS e Google Cloud. Containerização com Docker e Kubernetes.</p>
+        <div class="p-servicos">
+          <strong>Serviços:</strong>
+          <ul>
+            <li>Auditoria de Arquitetura Cloud</li>
+            <li>Migração para AWS/Google Cloud</li>
+            <li>CI/CD & IaC (Terraform, GitHub Actions)</li>
+            <li>Containerização (Docker, K8s)</li>
+          </ul>
         </div>
-    </section>
+      </div>
 
+      <!-- Pilar 2 -->
+      <div class="pillar-card">
+        <div class="p-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286z"/></svg>
+        </div>
+        <h3>🛡️ Segurança & LGPD</h3>
+        <div class="p-sub">Pilar 2</div>
+        <p>Do diagnóstico à estruturação completa de programas de segurança. AppSec, WAF, pentest e adequação à LGPD.</p>
+        <div class="p-servicos">
+          <strong>Serviços:</strong>
+          <ul>
+            <li>Diagnóstico e Gestão de Vulnerabilidades</li>
+            <li>WAF & AppSec (SAST/DAST)</li>
+            <li>Adequação LGPD</li>
+            <li>CISO as a Service (recorrente)</li>
+          </ul>
+        </div>
+      </div>
 
-	
+      <!-- Pilar 3 -->
+      <div class="pillar-card">
+        <div class="p-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+        </div>
+        <h3>🤖 Automação com n8n</h3>
+        <div class="p-sub">Pilar 3</div>
+        <p>Workflows inteligentes conectando CRMs, ERPs, APIs bancárias, WhatsApp e e-mail. Reduza tarefas manuais.</p>
+        <div class="p-servicos">
+          <strong>Serviços:</strong>
+          <ul>
+            <li>Automação de Processos</li>
+            <li>Integração de Sistemas</li>
+            <li>Automação para E-commerce</li>
+            <li>Manutenção Mensal de Workflows</li>
+          </ul>
+        </div>
+      </div>
 
+      <!-- Pilar 4 -->
+      <div class="pillar-card">
+        <div class="p-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/></svg>
+        </div>
+        <h3>🚀 Desenvolvimento SaaS & MVP</h3>
+        <div class="p-sub">Pilar 4</div>
+        <p>Produtos digitais sob medida com Python + Spec Driven Development. Do MVP à manutenção contínua.</p>
+        <div class="p-servicos">
+          <strong>Serviços:</strong>
+          <ul>
+            <li>MVP Acceleration (4–8 semanas)</li>
+            <li>API Development (REST)</li>
+            <li>Especificação Técnica (SDD)</li>
+            <li>Manutenção & Evolução de SaaS</li>
+          </ul>
+        </div>
+      </div>
 
+    </div>
+  </div>
+</section>
 
-	<section class="faq">
-		<div class="container">
-			<h2>Dúvidas Frequentes</h2>
-			<div class="faq-list">
-				
-			
+<!-- ══ PORTFÓLIO ══ -->
+<section class="alt" id="portfolio">
+  <div class="wrap">
+    <div class="sec-label">Cases reais</div>
+    <h2 class="sec-title">Entregas em produção</h2>
+    <p class="sec-sub">Projetos reais que falam por si. Da especificação ao deploy — sem maquiagem.</p>
 
-				<div class="faq-item">
-					<div class="faq-question">
-						<h3>O que exatamente eu recebo ao final da consultoria?</h3>
-						<i class="fas fa-chevron-down"></i>
-					</div>
-					<div class="faq-answer">
-						<p>Você recebe o seu Dossiê de Blindagem Digital. Ele contém o Inventário de Ativos mapeados, o mapa da sua nova arquitetura de segurança e a documentação técnica com QRCodes e tutoriais passo a passo. É um guia de consulta rápida para que você mantenha sua proteção ativa e saiba exatamente o que fazer em casos de perda de dispositivos.</p>
-					</div>
-				</div>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-tag">SaaS · Python · SDD</div>
+        <h4>IndiQR</h4>
+        <p>SaaS de gestão de indicações com QR codes individuais, rastreamento de conversões e comissões. Produto próprio em produção.</p>
+        <a href="https://indiqr.com.br" target="_blank" class="case-link">Ver site →</a>
+      </div>
+      <div class="case-card">
+        <div class="case-tag">n8n · IA · Chatbot</div>
+        <h4>Chatbot com IA no IndiQR</h4>
+        <p>Chatbot inteligente integrado ao site do IndiQR com n8n, conectando visitantes a respostas automatizadas com inteligência artificial.</p>
+      </div>
+      <div class="case-card">
+        <div class="case-tag">Scraping · Automação</div>
+        <h4>Coleta de Dados em Larga Escala</h4>
+        <p>Web scraping automatizado de notícias de fontes públicas com tratamento e estruturação dos dados para consumo em dashboards e análises.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ══ B2C BLINDAGEM DIGITAL ══ -->
+<section id="blindagem">
+  <div class="wrap">
+    <div class="sec-label">Para pessoas físicas</div>
+    <h2 class="sec-title">Blindagem Digital Pessoal</h2>
+    <p class="sec-sub">Proteja sua vida digital com a mesma metodologia usada para proteger ativos críticos do Estado.</p>
 
-				<div class="faq-item">
-					<div class="faq-question">
-						<h3>Já uso autenticação em duas etapas (2FA). Por que preciso da blindagem?</h3>
-						<i class="fas fa-chevron-down"></i>
-					</div>
-					<div class="faq-answer">
-						<p>O 2FA comum (via SMS ou e-mail padrão) é vulnerável a ataques de SIM Swap e engenharia social. Na Blindagem, implementamos camadas de 2FA de alta segurança (como chaves físicas ou autenticadores em dispositivos isolados) e blindamos os "pontos de recuperação". Se um invasor resetar sua senha, ele ainda encontrará uma barreira intransponível que eu ajudei você a construir.</p>
-					</div>
-				</div>
+    <div class="b2c-card">
+      <div>
+        <div class="b2c-badge">Metodologia Exclusiva</div>
+        <h3>Sua segurança não pode ser opcional</h3>
+        <p>Criminosos digitais evoluem rápido. Sua defesa precisa ir além de uma senha forte. Mapeamos, blindamos e documentamos toda a sua vida digital.</p>
+        <a href="https://wa.me/5561974035528?text=Ol%C3%A1%2C%20vi%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%20uma%20conversa%21" target="_blank" class="btn btn-primary">Saber mais</a>
+      </div>
+      <div class="b2c-right">
+        <div class="b2c-plan">
+          <span class="plan-name">🛡️ Essencial</span>
+        </div>
+        <div class="b2c-plan">
+          <span class="plan-name">⚡ Avançado</span>
+        </div>
+        <div class="b2c-plan">
+          <span class="plan-name">🏆 Premium</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-				<div class="faq-item">
-					<div class="faq-question">
-						<h3>O Especialista terá acesso às minhas senhas ou dados bancários?</h3>
-						<i class="fas fa-chevron-down"></i>
-					</div>
-					<div class="faq-answer">
-						<p>Absolutamente não. A metodologia é baseada em orientação e configuração assistida. Você utiliza seu próprio Cofre de Senhas e gera chaves criptográficas que só você possui. Nosso papel é estruturar a segurança, não deter suas chaves.</p>
-					</div>
-				</div>
+<!-- ══ CTA ══ -->
+<section class="cta-section" id="contato">
+  <h2>Vamos construir algo <em style="color:var(--coral);font-style:normal">juntos?</em></h2>
+  <p>Conte sua idéia, seu desafio ou sua dor. Respondo pessoalmente com uma proposta clara e sem enrolação.</p>
+  <a href="https://wa.me/5561974035528?text=Ol%C3%A1%2C%20vi%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%20uma%20conversa%21" target="_blank" class="btn btn-primary" style="font-size:1rem;padding:16px 32px;margin:0 auto">📲 Falar no WhatsApp</a>
+</section>
 
-				<div class="faq-item">
-					<div class="faq-question">
-						<h3>Quanto tempo leva o processo de Blindagem?</h3>
-						<i class="fas fa-chevron-down"></i>
-					</div>
-					<div class="faq-answer">
-						<p>Depende do plano escolhido. A Blindagem Básica pode ser estruturada em poucos dias, enquanto os planos Avançado e Premium envolvem sessões de suporte e documentação que podem levar de 1 a 2 semanas para conclusão total.</p>
-					</div>
-				</div>
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="/" class="logo-footer" aria-label="LealCyber">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#E4EAF4;letter-spacing:-0.5px">Leal</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#F56A00;letter-spacing:-0.5px">Cyber</span>
+      </a>
+      <div class="f-note">
+        Soluções Digitais Completas<br>
+        Cristopher Leal · Eng. Computação (IME)
+      </div>
+    </div>
+    <div class="f-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#blindagem">Blindagem Digital</a>
+      <a href="#contato">Contato</a>
+      <a href="curriculo.html">Currículo</a>
+      <a href="privacidade.html">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
 
-				<div class="faq-item">
-					<div class="faq-question">
-						<h3>Se eu perder meu celular blindado, eu fico trancado para fora das minhas contas?</h3>
-						<i class="fas fa-chevron-down"></i>
-					</div>
-					<div class="faq-answer">
-						<p>Pelo contrário. A maioria das pessoas perde o acesso porque não tem um plano de contingência. Durante a consultoria, criamos um Kit de Recuperação Offline. Se você perder todos os seus dispositivos hoje, a documentação que eu entrego permitirá que você retome o controle de sua identidade digital de forma estruturada e sem desespero.</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-
-	
-    <section id="contato" class="cta-section">
-		<div class="container"> <h2>Pronto para sua Blindagem Digital?</h2>
-			<p>Não deixe sua segurança para depois. Preencha o formulário e receba uma proposta personalizada.</p>
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSf-1GJ5_nAAnq5v6qoZVFTDs33iYcNk8wz1KZ7yEfT2kfhR1w/viewform?usp=header" target="_blank" class="btn-cta">Falar com um Especialista agora</a>
-		</div>
-	</section>
-
-	<footer class="main-footer">
-		<div class="container footer-content">
-			<p>&copy; 2025 Blindagem Digital Pessoal. Todos os direitos reservados.</p>
-			<p>CNPJ:62.605.890/0001-12 | Leal Cyber Defense Consultoria LTDA</p>
-			<div class="footer-links">
-				<a href="privacidade.html" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
-			</div>
-		</div>
-	</footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
